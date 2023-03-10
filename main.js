@@ -14,10 +14,12 @@ function populateGrid(boxNum) {
 
 function adjustGridSize(){
     let size = prompt("New Grid Size?");
+    container.innerHTML = '';
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     populateGrid(size*size)
 }
+
 
 
 populateGrid(256);
