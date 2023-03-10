@@ -1,0 +1,15 @@
+#container {
+    width: 640px;
+    height: 640px;
+    background: rgb(255, 255, 255);
+    display: grid;
+    /*repeat(number of columns/rows, the column width we want);
+    1fr is 1 fraction of number of col/row vs width/height*/
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+}
+
+.box {
+    border: 1px solid black;
+    box-sizing: border-box;
+}
