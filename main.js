@@ -23,5 +23,13 @@ function adjustGridSize(){
     populateGrid(size*size)
 }
 
-
 populateGrid(256);
+
+var slider = document.getElementById("gridrange");
+var output = document.getElementById("gridsize");
+output.innerHTML = slider.value + " X " + slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = this.value + " X " + this.value;
+}
