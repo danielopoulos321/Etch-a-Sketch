@@ -1,7 +1,8 @@
-#container {
+#gridbox {
     width: 640px;
     height: 640px;
     background: rgb(255, 255, 255);
+    border: solid 3px black;
     display: grid;
     /*repeat(number of columns/rows, the column width we want);
     1fr is 1 fraction of number of col/row vs width/height*/
@@ -13,3 +14,72 @@
     border: 1px solid black;
     box-sizing: border-box;
 }
+
+.menu {
+    background-color: rgb(108, 108, 151);
+    border: solid 3px black;
+    width: 320px;
+    height: 640px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main{
+    width: 1200px;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+body {
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: center;
+    font-family: 'Nova Flat';font-size: 22px;
+}
+
+h1{
+    text-align: center;
+    font-size: 4rem;
+}
+
+/* RANGE SLIDER */
+.slider {
+    -webkit-appearance: none;
+    width: 250px;
+    height: 15px;
+    border-radius: 5px;   
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+  }
+
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%; 
+    background: #04AA6D;
+    cursor: pointer;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #04AA6D;
+    cursor: pointer;
+  }
+
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }

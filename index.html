@@ -6,11 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="main.css">
+    <link href='https://fonts.googleapis.com/css?family=Nova Flat' rel='stylesheet'>
 </head>
 <body>
-    <button onclick="adjustGridSize()">Choose New Grid Size</button>
-    <div id="container"></div>
-
+    <div class="main">
+    <h1>Etch-a-Sketch</h1>
+    <div class="container">
+        <div class="menu">
+            <button onclick="adjustGridSize()">Choose New Grid Size</button>
+            <div class="slidecontainer">
+                <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+              </div>
+        </div>
+        <div id="gridbox"></div>
+    </div>
+    </div>
 </body>
 <script src="main.js"></script>
 </html>
