@@ -13,12 +13,17 @@
     <h1>Etch-a-Sketch</h1>
     <div class="container">
         <div class="menu">
-            <button onclick="adjustGridSize()">Choose New Grid Size</button>
-            <div class="slidecontainer">
-                <input type="range" min="1" max="100" value="50" class="slider" id="gridrange">
+            <div class="menuitem">
+                <div class="label" id="gridsize"></div>
+                <input type="range" min="1" max="100" value="16" class="slider" id="gridrange">
             </div>
-            <div id="gridsize">
-
+            <div class="menuitem">
+                <div class="label">Color</div>
+                <input type="color" id="colorpicker" value="#000000">
+            </div>
+            <div class="menuitem">
+                <div class="label">Toggle Opacity</div>
+                <button id="opacity">Off</button>
             </div>
         </div>
         <div id="gridbox"></div>

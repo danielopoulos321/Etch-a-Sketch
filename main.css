@@ -10,13 +10,23 @@
     grid-template-rows: repeat(16, 1fr);
 }
 
+#colorpicker{
+    width: 250px;
+    height: 50px;
+}
+
+.label{
+    padding-bottom: 10px;
+}
+
 .box {
+    opacity: 1;
     border: 1px solid black;
     box-sizing: border-box;
 }
 
 .menu {
-    background-color: rgb(108, 108, 151);
+    background-color: rgb(169, 169, 241);
     border: solid 3px black;
     width: 320px;
     height: 640px;
@@ -37,6 +47,13 @@
     align-items: center;
 }
 
+.menuitem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
 body {
     background-color: whitesmoke;
     display: flex;
@@ -47,6 +64,12 @@ body {
 h1{
     text-align: center;
     font-size: 4rem;
+}
+
+button{
+    width: 250px;
+    height: 50px;
+    font-family: 'Nova Flat';font-size: 20px;
 }
 
 /* RANGE SLIDER */
@@ -68,7 +91,7 @@ h1{
     width: 25px;
     height: 25px;
     border-radius: 50%; 
-    background: #04AA6D;
+    background: #07ca24;
     cursor: pointer;
   }
 
