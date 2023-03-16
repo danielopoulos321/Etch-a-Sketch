@@ -12,6 +12,22 @@ opacityButton.addEventListener('click', () => {
     }
 })
 
+const clearButton = document.getElementById('clear');
+clearButton.addEventListener('click', () => {
+    adjustGridSize(slider.value);
+})
+
+populateGrid(256);
+
+let slider = document.getElementById("gridrange");
+let output = document.getElementById("gridsize");
+output.innerHTML = "Grid Size: " + slider.value + " X " + slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  output.innerHTML = "Grid Size: " + this.value + " X " + this.value;
+  adjustGridSize(this.value);
+}
 
 function populateGrid(boxNum) {
     for(let i = 0; i < boxNum; i++){
@@ -22,11 +38,12 @@ function populateGrid(boxNum) {
             if (isOn){
                 const opacity = Number(box.style.opacity);
                 if (opacity < 1) {
-                    box.style.opacity = (opacity + 0.1).toString();
+                    box.style.opacity = (opacity + 0.1);
                 }
+            } else {
+                box.style.opacity = '1';
             }
             box.style.backgroundColor = color;
-
         });
         container.appendChild(box);
     }
@@ -37,17 +54,4 @@ function adjustGridSize(size){
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
     populateGrid(size*size)
-}
-
-
-populateGrid(256);
-
-var slider = document.getElementById("gridrange");
-var output = document.getElementById("gridsize");
-output.innerHTML = "Grid Size: " + slider.value + " X " + slider.value; // Display the default slider value
-
-// Update the current slider value (each time you drag the slider handle)
-slider.oninput = function() {
-  output.innerHTML = "Grid Size: " + this.value + " X " + this.value;
-  adjustGridSize(this.value);
 }

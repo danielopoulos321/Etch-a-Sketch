@@ -1,8 +1,14 @@
+*{
+    color: #4D455D;
+    font-family: 'Nova Flat';
+}
+
 #gridbox {
     width: 640px;
     height: 640px;
     background: rgb(255, 255, 255);
-    border: solid 3px black;
+    border: solid 3px #4D455D;
+    border-radius: 5px;
     display: grid;
     /*repeat(number of columns/rows, the column width we want);
     1fr is 1 fraction of number of col/row vs width/height*/
@@ -26,8 +32,9 @@
 }
 
 .menu {
-    background-color: rgb(169, 169, 241);
-    border: solid 3px black;
+    background-color: #7DB9B6;
+    border: solid 4px #4D455D;
+    border-radius: 5px;
     width: 320px;
     height: 640px;
     display: flex;
@@ -55,10 +62,10 @@
 }
 
 body {
-    background-color: whitesmoke;
+    background-color: #F5E9CF;
     display: flex;
     justify-content: center;
-    font-family: 'Nova Flat';font-size: 22px;
+    font-size: 22px;
 }
 
 h1{
@@ -69,7 +76,7 @@ h1{
 button{
     width: 250px;
     height: 50px;
-    font-family: 'Nova Flat';font-size: 20px;
+    font-size: 20px;
 }
 
 /* RANGE SLIDER */
@@ -80,7 +87,7 @@ button{
     border-radius: 5px;   
     background: #d3d3d3;
     outline: none;
-    opacity: 0.7;
+    opacity: 0.85;
     -webkit-transition: .2s;
     transition: opacity .2s;
   }
@@ -91,7 +98,7 @@ button{
     width: 25px;
     height: 25px;
     border-radius: 50%; 
-    background: #07ca24;
+    background: #E96479;
     cursor: pointer;
   }
 
@@ -99,7 +106,7 @@ button{
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #04AA6D;
+    background: #E96479;
     cursor: pointer;
   }
 
