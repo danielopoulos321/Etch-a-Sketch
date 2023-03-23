@@ -31,6 +31,22 @@ rainbowButton.addEventListener('click', () => {
         rainbowButton.style.backgroundColor = '#E96479';
     }
 })
+
+const clickButton = document.getElementById('click');
+let click = false;
+clickButton.addEventListener('click', () => {
+    if(click) {
+        click = false;
+        changeEventListener(click);
+        clickButton.textContent = 'On Mouseover';
+        clickButton.style.backgroundColor = '#ffffff';
+    } else {
+        click = true;
+        changeEventListener(click);
+        clickButton.textContent = 'On Mousedown';
+        clickButton.style.backgroundColor = '#E96479';
+    }
+})
 //BUTTONS END
 
 const container = document.querySelector('#gridbox');
@@ -46,6 +62,7 @@ slider.oninput = function() {
   adjustGridSize(this.value);
 }
 
+let isMouseDown = false;
 function populateGrid(boxNum) {
     for(let i = 0; i < boxNum; i++){
         const box = document.createElement('div');
@@ -79,4 +96,54 @@ function randomColour(){
     let g = Math.floor(Math.random() * 256);
     let b = Math.floor(Math.random() * 256);
   return "rgb(" + r + "," + g + "," + b + ")";
+}
+
+function changeEventListener(enableClick) {
+    let boxes = document.querySelectorAll('.box');
+
+    boxes.forEach(box => {
+        const clone = box.cloneNode(true);
+        box.parentNode.replaceChild(clone, box);
+    })
+
+    boxes = document.querySelectorAll('.box');
+
+    boxes.forEach(box => {
+        let filter = 100;
+        if (enableClick) {
+            box.addEventListener("mousedown", () => {
+                isMouseDown = true;
+            });
+            box.addEventListener("mouseup", () => {
+                isMouseDown = false;
+            });
+            box.addEventListener("mousemove", () => {
+                if (isMouseDown) {
+                    const color = document.getElementById('colorpicker').value;
+                    if (shading){
+                        filter -= 10;
+                        box.style.filter = `brightness(${filter}%)`;
+                    }
+                    if (rainYes){
+                        box.style.backgroundColor = randomColour();
+                    } else {
+                        box.style.backgroundColor = color;
+                    }
+                }
+            });
+        } else {
+            box.addEventListener("mouseover", () => {
+                const color = document.getElementById('colorpicker').value;
+                if (shading){
+                    filter -= 10;
+                        box.style.filter = `brightness(${filter}%)`;
+                }
+                if (rainYes){
+                    box.style.backgroundColor = randomColour();
+                } else {
+                    box.style.backgroundColor = color;
+                }
+            });
+        }
+    });
 }
