@@ -1,13 +1,13 @@
 //BUTTONS START
-const opacityButton = document.getElementById('opacity');
-let opaYes = false;
+const opacityButton = document.getElementById('shading');
+let shading = false;
 opacityButton.addEventListener('click', () => {
-    if(opaYes) {
-        opaYes = false;
+    if(shading) {
+        shading = false;
         opacityButton.textContent = 'Off';
         opacityButton.style.backgroundColor = '#ffffff';
     } else {
-        opaYes = true;
+        shading = true;
         opacityButton.textContent = 'On';
         opacityButton.style.backgroundColor = '#E96479';
     }
@@ -49,16 +49,13 @@ slider.oninput = function() {
 function populateGrid(boxNum) {
     for(let i = 0; i < boxNum; i++){
         const box = document.createElement('div');
+        let filter = 100;
         box.classList.add('box');
         box.addEventListener("mouseover", () => {
             const color = document.getElementById('colorpicker').value;
-            if (opaYes){
-                const opacity = Number(box.style.opacity);
-                if (opacity < 1) {
-                    box.style.opacity = (opacity + 0.1);
-                }
-            } else {
-                box.style.opacity = '1';
+            if (shading){
+                filter -= 10;
+                    box.style.filter = `brightness(${filter}%)`;
             }
             if (rainYes){
                 box.style.backgroundColor = randomColour();
