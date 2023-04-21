@@ -88,7 +88,8 @@ function adjustGridSize(size){
     container.innerHTML = '';
     container.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
     container.style.gridTemplateRows = `repeat(${size}, 1fr)`;
-    populateGrid(size*size)
+    populateGrid(size*size);
+    changeEventListener(click);
 }
 
 function randomColour(){
